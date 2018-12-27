@@ -57,11 +57,37 @@ code and its whitespace trimmed output."
   "Returns true if `command' is an executable on the system search path."
   (f-executable? (s-trim (shell-command-to-string (s-concat "which " command)))))
 
+
 (defun ohai/resolve-exec (command)
   "If `command' is an executable on the system search path, return its absolute path.
 Otherwise, return nil."
   (-let [path (s-trim (shell-command-to-string (s-concat "which " command)))]
     (when (f-executable? path) path)))
+
+;; workaround from https://github.com/syl20bnr/spacemacs/issues/9047#issuecomment-405109422
+(defun ohai/resolve-node-exec (command &rest extra-modules)
+  "Search for an executable named COMMAND and return the absolute file name of
+ the executable. This function searches directories \"node_modules/.bin\",
+ \"node_modules/MODULE/node_modules/.bin\" for each extra module in
+ EXTRA-MODULES, and the directories searched by `executable-find'."
+  (let* ((root (locate-dominating-file
+                (or (buffer-file-name) default-directory)
+                "node_modules"))
+         (node_modules (expand-file-name "node_modules" root))
+         (bindirs (nconc
+                   (list
+                    ;; node_modules/.bin/{command}
+                    ".bin"
+                    ;; node_modules/{command}/bin/{command}
+                    ;; (format "%s/bin" command)
+                    )
+                   ;; node_modules/{moduleN}/node_modules/.bin/{command}
+                   (--map (f-join it "node_modules" ".bin") extra-modules))))
+    (or
+     (dolist (bindir bindirs)
+       (let ((path (f-join node_modules bindir command)))
+         (when (file-executable-p path) (return path))))
+     (ohai/resolve-exec command))))
 
 (defun ohai/exec-if-exec (command args)
   "If `command' satisfies `ohai/is-exec', run it with `args' and return its

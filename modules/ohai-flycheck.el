@@ -36,6 +36,15 @@
               (when (not (equal 'emacs-lisp-mode major-mode))
                 (flycheck-mode)))))
 
+;; use checkers from project node_modules
+(add-hook 'flycheck-mode-hook
+          (lambda ()
+            (progn
+              (setq-local flycheck-javascript-flow-executable
+                          (ohai/resolve-node-exec "flow"))
+              (setq-local flycheck-javascript-eslint-executable
+                          (ohai/resolve-node-exec "eslint")))))
+
 ;; Turn the modeline red when Flycheck has errors.
 (use-package flycheck-color-mode-line
   :config

@@ -20,7 +20,10 @@
 
 ;;; Code:
 
-(use-package flow-mode
+;; Flycheck addons
+(use-package flycheck-flow)
+
+(use-package flow-minor-mode
   :config
   (with-eval-after-load 'flycheck
     (flycheck-add-mode 'javascript-flow 'flow-mode)
@@ -30,10 +33,9 @@
     (add-to-list 'company-backends 'company-flow))
   (with-eval-after-load 'projectile
     (add-to-list 'projectile-project-root-files ".flowconfig"))
-  (setq flow-binary (or (ohai/resolve-exec "flow") "flow"))
+
+
   (add-to-list 'auto-mode-alist '("\\.flowconfig\\'" . conf-mode)))
-
-
 
 (provide 'ohai-flow)
 ;;; ohai-flow.el ends here

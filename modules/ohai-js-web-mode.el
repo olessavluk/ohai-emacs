@@ -27,8 +27,8 @@
 ;; If npm is installed, add its local prefix to the executable
 ;; search path, which helps Emacs find linters etc.
 ;; This isn't Windows compatible.
-(-when-let (npm-prefix (ohai/exec-if-exec "npm" "config get prefix"))
-  (setenv "PATH" (concat npm-prefix "/bin:" (getenv "PATH"))))
+;; (-when-let (npm-prefix (ohai/exec-if-exec "npm" "config get prefix"))
+;;   (setenv "PATH" (concat npm-prefix "/bin:" (getenv "PATH"))))
 
 ;; Use web-mode for all JS files.
 (use-package web-mode
@@ -47,8 +47,7 @@
 
   ;; Let Flycheck know that we're using web-mode for JS.
   (with-eval-after-load "flycheck"
-    (flycheck-add-mode 'javascript-eslint 'web-mode)
-    (setq flycheck-javascript-eslint-executable (or (ohai/resolve-exec "eslint") "eslint"))))
+    (flycheck-add-mode 'javascript-eslint 'web-mode)))
 
 ;; Set up LSP support if the LSP module is loaded.
 (with-eval-after-load "ohai-lsp"
