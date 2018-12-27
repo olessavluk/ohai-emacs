@@ -21,6 +21,7 @@
 ;;; Code:
 
 (use-package helm
+  :demand t
   :config
   (require 'helm-config)
   (require 'helm)
@@ -28,6 +29,7 @@
   (helm-mode 1)
   (with-eval-after-load "ohai-project"
     (use-package helm-projectile
+      :demand t
       ;; A binding for using Helm to pick files using Projectile,
       ;; and override the normal grep with a Projectile based grep.
       :bind (("C-c C-f" . helm-projectile-find-file-dwim)

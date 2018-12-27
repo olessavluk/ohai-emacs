@@ -25,6 +25,7 @@
 ;; Install Projectile and activate it for all things.
 ;; Learn about Projectile: http://batsov.com/projectile/
 (use-package projectile
+  :demand t
   :bind-keymap
   ("s-p" . projectile-command-map)
   ("C-c p" . projectile-command-map)
