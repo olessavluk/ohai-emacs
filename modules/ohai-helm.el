@@ -51,7 +51,6 @@
   ;; Replace common selectors with Helm versions.
   :bind (("M-x" . helm-M-x)
          ("C-x C-f" . helm-find-files)
-         ("C-x C-g" . helm-do-grep)
          ("C-x b" . helm-buffers-list)
          ("C-x c g" . helm-google-suggest)
          ("C-t" . helm-imenu)
@@ -70,12 +69,6 @@
   (with-eval-after-load "helm"
     (require 'helm-flx)
     (helm-flx-mode 1)))
-
-;; Set up a couple of tweaks from helm-ext.
-(use-package helm-ext
-  :config
-  (helm-ext-ff-enable-skipping-dots t)
-  (helm-ext-ff-enable-auto-path-expansion t))
 
 ;; Use Helm to complete with multiple matches in eshell.
 (add-hook 'eshell-mode-hook
