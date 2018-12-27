@@ -55,7 +55,8 @@
          ("C-x b" . helm-buffers-list)
          ("C-x c g" . helm-google-suggest)
          ("C-t" . helm-imenu)
-         ("M-y" . helm-show-kill-ring)))
+         ("M-y" . helm-show-kill-ring))
+  :diminish helm-mode)
 
 ;; Enrich isearch with Helm using the `C-S-s' binding.
 ;; swiper-helm behaves subtly different from isearch, so let's not

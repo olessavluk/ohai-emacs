@@ -29,8 +29,8 @@
   :bind-keymap
   ("s-p" . projectile-command-map)
   ("C-c p" . projectile-command-map)
-  :config
-  (projectile-mode +1))
+  :config (projectile-mode +1)
+  :diminish projectile-mode)
 
 ;; Use ibuffer instead of list-buffers (C-x C-b) and sort by project.
 (use-package ibuffer-projectile
