@@ -144,7 +144,9 @@
   t)
 
 (when window-system
-  (setq initial-buffer-choice 'ohai-splash/go))
+  ;; *scratch* is selected by default
+  ;; (setq initial-buffer-choice 'ohai-splash/go)
+  (ohai-splash/go))
 
 ;; A hack here to force the splash screen after the first run wizard's
 ;; module selection, as `initial-buffer-choice' will already have run.
