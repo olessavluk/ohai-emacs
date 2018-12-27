@@ -25,13 +25,11 @@
 ;; Install Projectile and activate it for all things.
 ;; Learn about Projectile: http://batsov.com/projectile/
 (use-package projectile
-  :demand t
-  :commands projectile-global-mode
+  :bind-keymap
+  ("s-p" . projectile-command-map)
+  ("C-c p" . projectile-command-map)
   :config
-  (projectile-global-mode)
-  ;; Use C-c C-f to find a file anywhere in the current project.
-  :bind ("C-c C-f" . projectile-find-file)
-  :diminish projectile-mode)
+  (projectile-mode +1))
 
 ;; Use ibuffer instead of list-buffers (C-x C-b) and sort by project.
 (use-package ibuffer-projectile

@@ -54,6 +54,28 @@
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
+;; C-c <left/right> to manage windows history
+(winner-mode 1)
+;; M-<number> to switch window you want
+(use-package winum
+  :init
+  (progn
+    (setq winum-keymap
+          (let ((map (make-sparse-keymap)))
+            (define-key map (kbd "C-`") 'winum-select-window-by-number)
+            (define-key map (kbd "C-²") 'winum-select-window-by-number)
+            (define-key map (kbd "M-0") 'winum-select-window-0-or-10)
+            (define-key map (kbd "M-1") 'winum-select-window-1)
+            (define-key map (kbd "M-2") 'winum-select-window-2)
+            (define-key map (kbd "M-3") 'winum-select-window-3)
+            (define-key map (kbd "M-4") 'winum-select-window-4)
+            (define-key map (kbd "M-5") 'winum-select-window-5)
+            (define-key map (kbd "M-6") 'winum-select-window-6)
+            (define-key map (kbd "M-7") 'winum-select-window-7)
+            (define-key map (kbd "M-8") 'winum-select-window-8)
+            map))
+    (winum-mode)))
+
 ;; Use C-x M-p to kill the buffer in the other window, revealing
 ;; the next buffer in the stack.
 (global-set-key

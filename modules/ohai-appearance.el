@@ -30,6 +30,12 @@
   (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
     (when (fboundp mode) (funcall mode -1))))
 
+;; Use ⌘ as meta, ⌥ as always
+(setq mac-option-key-is-meta nil
+      mac-command-key-is-meta t
+      mac-command-modifier 'meta
+      mac-option-modifier 'none)
+
 ;; Configure the light colour scheme.
 (defun ohai-appearance/light ()
   (interactive)

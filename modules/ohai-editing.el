@@ -21,26 +21,19 @@
 ;;; Code:
 
 ;; Multiple cursors!
-;; Use <insert> to place a cursor on the next match for the current selection.
-;; Use S-<insert> to place one on the previous match.
-;; Use C-' to use extended mark mode, giving you more control.
-;; Use C-" to place cursors on all matches.
-;; Select a region and C-M-' to place cursors on each line of the selection.
-;; Bonus: <insert> key no longer activates overwrite mode.
-;; What is that thing for anyway?
 (use-package multiple-cursors
+  :demand t
   :commands multiple-cursors-mode
-  :config
-  ;; MC has `mc-hide-unmatched-lines-mode' bound to C-', which interferes
-  ;; with our ability to add more cursors, so we'll just clear the binding.
-  ;; TODO: add `mc-hide-unmatched-lines-mode' back somewhere else?
-  (bind-keys :map mc/keymap
-             ("C-'" . nil))
-  :bind (("<insert>" . mc/mark-next-like-this)
-	 ("S-<insert>" . mc/mark-previous-like-this)
-	 ("C-'" . mc/mark-more-like-this-extended)
-	 ("C-\"" . mc/mark-all-like-this-dwim)
-	 ("C-M-'" . mc/edit-lines)))
+  :bind (("C-c m e" . mc/edit-lines)
+         ("C-c m m" . mc/mark-more-like-this-extended)
+         ("C-c m n" . mc/mark-next-like-this)
+         ("C-c m p" . mc/mark-previous-like-this)
+         ("C-c m a" . mc/mark-all-like-this)
+
+         ("C-M-<return>" . mc/mark-more-like-this-extended)
+         ("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C-c C-<" . mc/mark-all-like-this)))
 
 ;; Use C-= to select the innermost logical unit your cursor is on.
 ;; Keep hitting C-= to expand it to the next logical unit.
@@ -147,5 +140,12 @@
   :config
   (volatile-highlights-mode t)
   :diminish volatile-highlights-mode)
+
+;; supercharge undo
+(use-package undo-tree
+  :init
+  (global-undo-tree-mode)
+  (setq undo-tree-visualizer-timestamps t)
+  (setq undo-tree-visualizer-diff t))
 
 (provide 'ohai-editing)
