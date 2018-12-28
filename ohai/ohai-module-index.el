@@ -50,6 +50,7 @@
    (ohai-html "HTML, CSS and friends" :optional)
    (ohai-markdown "Markdown support" :optional)
    (ohai-yaml "YAML support" :optional)
+   (ohai-docker "Docker support" :optional)
    (ohai-javascript "JavaScript language support" :optional)
    (ohai-js-web-mode "alternative JS support using web-mode" :optional)
    (ohai-flow "the Flow type checker for JS" :optional)
