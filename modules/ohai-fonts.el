@@ -36,7 +36,11 @@
 
 (defun ohai-fonts/update-font-size (increment)
   (set-frame-font
-   (ohai-fonts/update-font-spec-size (frame-parameter nil 'font) increment)))
+   (ohai-fonts/update-font-spec-size (frame-parameter nil 'font) increment))
+  (->> (frame-parameter nil 'font)
+       (s-split "-")
+       (nth 7)
+       (message "Font size: %s")))
 
 (global-set-key (kbd "C-M--") (lambda () (interactive)
                                 (ohai-fonts/update-font-size -1)))

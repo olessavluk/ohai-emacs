@@ -1,4 +1,5 @@
 (("ace-window" . "2e3b9562b52e3ce2def3adf32f5ec8fe77f573d6")
+ ("atomic-chrome" . "a505f638866f9e7b913784be0dc84f338e9ad449")
  ("avy" . "24b51374bef91cb24ec5993217187bf616fcb663")
  ("clang-format" . "5556c31528af2661bed3011bd63ffc0ed44e18a0")
  ("company-emoji" . "f0d91d5be0077b20b418a3ba37d36f431fae322f")
@@ -24,6 +25,7 @@
  ("emacs-memoize" . "9a561268ffb550b257a08710489a95cd087998b6")
  ("emacs-refactor" . "8856b2ed7e45dd33a5f81e1302a2fba736c64dd6")
  ("emacs-web" . "483188dac4bc6b409b985c9dae45f3324a425efd")
+ ("emacs-websocket" . "0d96ba2ff5a25c6cd6c66f417cc9b5f38a4308ba")
  ("emacs-which-key" . "43e3e3d7641a8e1c298b37e6a277612bf0898708")
  ("emacs-winum" . "efcb14fd306afbc738666e6b2e5a8a1bb5904392")
  ("epkgs" . "d5b225af46e6a0bc0a3f3db255bf3a714961b90e")

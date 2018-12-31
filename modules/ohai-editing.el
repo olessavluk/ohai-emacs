@@ -149,4 +149,10 @@
   (setq undo-tree-visualizer-diff t)
   :diminish undo-tree-mode)
 
+;; Allows you to edit text areas of the browser in Emacs
+;; You will need to install GhostText in your browser
+;; See https://github.com/GhostText/GhostText
+(use-package atomic-chrome
+  :config (atomic-chrome-start-server))
+
 (provide 'ohai-editing)
