@@ -24,7 +24,9 @@
 ;; executable path from your shell configuration using the
 ;; `exec-path-from-shell' package.
 
-(paradox-require 'exec-path-from-shell)
+
+;; (paradox-require 'exec-path-from-shell)
+(straight-use-package 'exec-path-from-shell)
 
 (when (memq window-system '(x mac ns))
   (exec-path-from-shell-initialize))

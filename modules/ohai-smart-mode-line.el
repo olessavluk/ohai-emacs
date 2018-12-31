@@ -20,7 +20,7 @@
 
 ;;; Code:
 
-(use-package "rich-minority"
+(use-package rich-minority
   :commands rich-minority-mode
   :demand t
   :init
@@ -29,11 +29,11 @@
   :config
   (rich-minority-mode 1))
 
-(use-package "smart-mode-line"
+(use-package smart-mode-line
   :commands sml/setup
   :demand t
   :init
-  (setq sml/theme 'respectful
+  (setq sml/theme 'dark
         sml/shorten-directory t
         sml/shorten-modes t
         sml/name-width 40

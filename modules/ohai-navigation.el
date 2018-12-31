@@ -27,7 +27,7 @@
 ;; https://github.com/abo-abo/avy
 (use-package avy
   :demand t
-  :bind (("C-;" . avy-goto-word-1)
+  :bind (("M-g w" . avy-goto-word-1)
          ("C-:" . avy-goto-char))
   :config
   (with-eval-after-load "isearch"
