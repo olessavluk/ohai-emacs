@@ -76,6 +76,48 @@
             map))
     (winum-mode)))
 
+;; When using laptop I have fullscreen frame split by 2x2 windows
+;; Useing:
+;;   C-c w r f - "Window Resize Fullscreen"
+;;   C-c w a f - "Window Arrange Four"
+(defun my-fullscreen ()
+  (interactive)
+  (set-frame-parameter nil 'fullscreen 'maximized))
+(defun my-arrange-windows-4 ()
+  (interactive)
+  (split-window-below)
+  (split-window-right)
+  (winum-select-window-by-number 3)
+  (split-window-right)
+  (winum-select-window-by-number 4)
+  (switch-to-buffer "*Messages*")
+  (winum-select-window-by-number 1))
+(global-set-key (kbd "C-c w r f") 'my-fullscreen)
+(global-set-key (kbd "C-c w a f") 'my-arrange-windows-4)
+
+;; Hovever on 25'/2k monitor I prefer to have 3x2 grid
+;; Where each window is about 80x35
+;; Use:
+;;   C-c w r s - "Window Resize Six"
+;;   C-c w a s - "Window Arrange Six"
+(defun my-resize-6 ()
+  (interactive)
+  (set-frame-parameter nil 'fullscreen nil)
+  (set-frame-size (selected-frame) 300 88))
+(defun my-arrange-windows-6 ()
+  (interactive)
+  (split-window-below)
+  (split-window-right)
+  (split-window-right)
+  (winum-select-window-by-number 4)
+  (split-window-right)
+  (split-window-right)
+  (winum-select-window-by-number 6)
+  (switch-to-buffer "*Messages*")
+  (winum-select-window-by-number 1))
+(global-set-key (kbd "C-c w r s") 'my-resize-6)
+(global-set-key (kbd "C-c w a s") 'my-arrange-windows-6)
+
 ;; Use C-x M-p to kill the buffer in the other window, revealing
 ;; the next buffer in the stack.
 (global-set-key
