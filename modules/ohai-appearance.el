@@ -30,6 +30,11 @@
   (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
     (when (fboundp mode) (funcall mode -1))))
 
+(use-package ns-auto-titlebar
+  :config
+  (when (eq system-type 'darwin)
+    (ns-auto-titlebar-mode)))
+
 ;; Use ⌘ as meta, ⌥ as always
 (setq mac-option-key-is-meta nil
       mac-command-key-is-meta t

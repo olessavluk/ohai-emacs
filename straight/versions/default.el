@@ -71,6 +71,7 @@
  ("marshal.el" . "f038689cbd5b3680b80b44edd0c7a63ca3038e26")
  ("melpa" . "b7ae169ca3b59d3b876d52148dac573b7f083ac3")
  ("multiple-cursors.el" . "6a7c3c0853e3fe9e4b8e5985dbed8fd4075f33ff")
+ ("ns-auto-titlebar" . "b16092e8058af63ad2bc222f166b0aa3cb66bf9d")
  ("nyan-mode" . "a85ac925367ddc542827182a2d9f0133b421c41b")
  ("org" . "c4e744ec8e397b5b4a52fda8bfcf302cf1d1197e")
  ("org-bullets" . "b56f2e3812626f2c4ac1686073d102c71f4a8513")
