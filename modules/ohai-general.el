@@ -56,4 +56,7 @@
 ;; at the first error.
 (setq compilation-scroll-output 'first-error)
 
+;; So I can use emacsclient for editing
+(server-start)
+
 (provide 'ohai-general)

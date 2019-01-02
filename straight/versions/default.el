@@ -81,6 +81,7 @@
  ("pkg-info.el" . "76ba7415480687d05a4353b27fea2ae02b8d9d61")
  ("popup-el" . "80829dd46381754639fb764da11c67235fe63282")
  ("pos-tip" . "051e08fec5cf30b7574bdf439f79fef7d42d689d")
+ ("prettier-emacs" . "fac9dd29720f8417bd8cd5dd8ab5138c6dd7d701")
  ("projectile" . "d625ecb09e3a9fb319740686402197bdf6fc109b")
  ("rich-minority" . "a50d9b2fd059f6a0e5b22063a5375851a087f61a")
  ("s.el" . "03410e6a7a2b11e47e1fea3b7d9899c7df26435e")

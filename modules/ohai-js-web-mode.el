@@ -30,6 +30,11 @@
 ;; (-when-let (npm-prefix (ohai/exec-if-exec "npm" "config get prefix"))
 ;;   (setenv "PATH" (concat npm-prefix "/bin:" (getenv "PATH"))))
 
+(use-package prettier-js
+  :commands prettier-js
+  :bind ("C-c C-p" . prettier-js)
+  :init (setq-default prettier-js-args '("--single-quote" "true")))
+
 ;; Use web-mode for all JS files.
 (use-package web-mode
   :mode (("\\.jsx?$" . web-mode)
