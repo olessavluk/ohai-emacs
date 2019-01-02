@@ -55,14 +55,17 @@ code and its whitespace trimmed output."
 
 (defun ohai/is-exec (command)
   "Returns true if `command' is an executable on the system search path."
-  (f-executable? (s-trim (shell-command-to-string (s-concat "which " command)))))
-
+  (-let [path (ohai/exec (s-concat "which " command))]
+    (and (f-file? path)
+         (f-executable? path))))
 
 (defun ohai/resolve-exec (command)
   "If `command' is an executable on the system search path, return its absolute path.
 Otherwise, return nil."
-  (-let [path (s-trim (shell-command-to-string (s-concat "which " command)))]
-    (when (f-executable? path) path)))
+  (-let [path (ohai/exec (s-concat "which " command))]
+    (when (and (f-file? path)
+               (f-executable? path))
+      path)))
 
 ;; workaround from https://github.com/syl20bnr/spacemacs/issues/9047#issuecomment-405109422
 (defun ohai/resolve-node-exec (command &rest extra-modules)
