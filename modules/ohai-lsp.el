@@ -22,20 +22,20 @@
 
 ;; Basic lsp-mode config.
 ;; Language modules will add their own lsp setup if this is loaded.
-(use-package lsp-mode)
+(use-package lsp-mode
+  :demand t
+  :commands lsp)
 
 (with-eval-after-load "company"
   (use-package company-lsp
     :after lsp-mode
-    :config
-    (push 'company-lsp company-backends)))
+    :commands company-lsp))
 
-(use-package lsp-ui
-  :after lsp-mode
-  :hook (lsp-mode . lsp-ui-mode)
-  :bind (:map lsp-ui-mode-map
-              ("M-." . lsp-ui-peek-find-definitions)
-              ("M-?" . lsp-ui-peek-find-references)))
+;; (use-package lsp-ui
+;;   :commands lsp-ui-mode
+;;   :bind (:map lsp-ui-mode-map
+;;               ("M-." . lsp-ui-peek-find-definitions)
+;;               ("M-?" . lsp-ui-peek-find-references)))
 
 
 
