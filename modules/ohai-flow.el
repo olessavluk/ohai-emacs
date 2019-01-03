@@ -22,6 +22,7 @@
 
 ;; Flycheck addons
 (use-package flycheck-flow)
+(use-package company-flow)
 
 (use-package flow-minor-mode
   :config
@@ -33,7 +34,8 @@
     (add-to-list 'company-backends 'company-flow))
   (with-eval-after-load 'projectile
     (add-to-list 'projectile-project-root-files ".flowconfig"))
-
+  (with-eval-after-load 'ohai-js-web-mode
+    (add-hook 'web-mode-hook 'flow-minor-enable-automatically))
 
   (add-to-list 'auto-mode-alist '("\\.flowconfig\\'" . conf-mode)))
 
