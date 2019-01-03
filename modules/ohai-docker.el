@@ -8,7 +8,8 @@
              :type git
              :host github
              :repo "olessavluk/docker-tramp.el"
-             :branch "multi-hops"))
+             :branch "multi-hops")
+  :config (setq-default docker-tramp-use-names t))
 
 (use-package docker
   :bind ("C-c d" . docker))
