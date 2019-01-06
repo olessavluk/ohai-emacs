@@ -17,7 +17,7 @@ If you have an emacs.d already, move it out of the way (~mv ~/.emacs.d ~/.emacs.
 To download Ohai Emacs as your new emacs.d:
 
 #+begin_src sh
-$ git clone https://github.com/bodil/ohai-emacs.git ~/.emacs.d
+$ git clone https://github.com/olessavluk/ohai-emacs.git ~/.emacs.d
 #+end_src
 
 That's it! Now, the next time you start Emacs, Ohai Emacs will ask you a few questions about how you like things to be, and go on the internets and download some fresh packages for you. In a little while, it will be ready for your emacsing.
