@@ -33,7 +33,7 @@
       ;; A binding for using Helm to pick files using Projectile,
       ;; and override the normal grep with a Projectile based grep.
       :bind (("C-c C-f" . helm-projectile-find-file-dwim)
-             ("C-x C-g" . helm-projectile-grep))
+             ("C-x C-g" . helm-grep-do-git-grep))
       :config (helm-projectile-on)))
   ;; Tell Helm to resize the selector as needed.
   (helm-autoresize-mode 1)
@@ -48,6 +48,13 @@
                 helm-recentf-fuzzy-match t
                 helm-apropos-fuzzy-match t)
   (set-face-attribute 'helm-source-header nil :height 0.75)
+
+  (defun ohai/helm-grep-do-git-grep-root ()
+    "Run helm-grep-do-git-grep from git root"
+    (interactive)
+    (helm-grep-do-git-grep (vc-root-dir)))
+  (bind-key "C-x C-M-g" 'ohai/helm-grep-do-git-grep-root)
+
   ;; Replace common selectors with Helm versions.
   :bind (("M-x" . helm-M-x)
          ("C-x C-f" . helm-find-files)
