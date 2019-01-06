@@ -43,7 +43,10 @@
               (setq-local flycheck-javascript-flow-executable
                           (ohai/resolve-node-exec "flow"))
               (setq-local flycheck-javascript-eslint-executable
-                          (ohai/resolve-node-exec "eslint")))))
+                          (ohai/resolve-node-exec "eslint"))
+              (setq-local flycheck-typescript-tslint-executable
+                          (ohai/resolve-node-exec "tslint"))
+              )))
 
 ;; Turn the modeline red when Flycheck has errors.
 (use-package flycheck-color-mode-line
