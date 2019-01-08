@@ -33,11 +33,13 @@
 (use-package prettier-js
   :commands prettier-js
   :bind ("C-c C-p" . prettier-js)
-  :init (setq-default prettier-js-args '("--single-quote" "true")))
+  ;; :init (setq-default prettier-js-args '("--single-quote" "true"))
+  )
 
 ;; Use web-mode for all JS files.
 (use-package web-mode
-  :mode (("\\.jsx?$" . web-mode)
+  :mode (("\\.tsx?$" . web-mode)
+         ("\\.jsx?$" . web-mode)
          ("\\.es6\\'" . web-mode)
          ("\\.ejs\\'" . web-mode))
   :config

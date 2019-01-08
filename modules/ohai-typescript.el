@@ -3,15 +3,19 @@
 
 ;;; Code:
 
-(use-package typescript-mode
-  :mode ("\\.tsx?$" . typescript-mode))
+;; (use-package typescript-mode
+;;   :mode ("\\.tsx?$" . typescript-mode))
 
 
 (use-package tide
-  :after (typescript-mode company flycheck)
-  :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-hl-identifier-mode)
-         (before-save . tide-format-before-save))
+  :after (web-mode ;; typescript-mode
+          company flycheck)
+  :hook ((web-mode . tide-setup)
+         (web-mode . tide-hl-identifier-mode)
+         ;; (typescript-mode . tide-setup)
+         ;; (typescript-mode . tide-hl-identifier-mode)
+         ;; (before-save . tide-format-before-save)
+         )
   :config
   (defun setup-tide-mode ()
     (interactive)
@@ -29,9 +33,10 @@
   (setq company-tooltip-align-annotations t)
 
   ;; formats the buffer before saving
-  (add-hook 'before-save-hook 'tide-format-before-save)
+  ;; (add-hook 'before-save-hook 'tide-format-before-save)
 
-  (add-hook 'typescript-mode-hook #'setup-tide-mode))
+  ;; (add-hook 'typescript-mode-hook #'setup-tide-mode))
+  )
 
 
 
