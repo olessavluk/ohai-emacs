@@ -60,6 +60,7 @@
                    name (file-name-nondirectory new-name)))))))
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 
+(use-package xah-find)
 
 
 (provide 'ohai-dired)

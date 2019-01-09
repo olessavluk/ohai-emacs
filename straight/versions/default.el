@@ -93,6 +93,7 @@
  ("volatile-highlights.el" . "9a20091f0ce7fc0a6b3e641a6a46d5f3ac4d8392")
  ("web-mode" . "5da977bec7714c09d41b556e2d651ccb269a14a2")
  ("with-editor" . "9dd9f176d96abc60365369de6d08c26c414ef1f3")
+ ("xah-find" . "cde62a040dda923279320a1ba7eafa30411b8545")
  ("yaml-mode" . "40067a10ac1360f0b9533f0bbbb2eea128e2574d")
  ("yasnippet" . "1d96da2e08664c31ff7f6f7441da1f4fa5680b1f"))
 :saturn

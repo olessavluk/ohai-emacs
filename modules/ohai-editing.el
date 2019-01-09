@@ -31,6 +31,9 @@
          ("C-c m a" . mc/mark-all-like-this)
 
          ("C-M-<return>" . mc/mark-more-like-this-extended)
+         ("C-M-<down>" . mc/mark-next-like-this)
+         ("C-M-<up>" . mc/mark-previous-like-this)
+
          ("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
          ("C-c C-<" . mc/mark-all-like-this)))
