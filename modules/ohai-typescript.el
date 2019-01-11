@@ -10,10 +10,9 @@
 (use-package tide
   :after (web-mode ;; typescript-mode
           company flycheck)
-  :hook ((web-mode . tide-setup)
-         (web-mode . tide-hl-identifier-mode)
-         ;; (typescript-mode . tide-setup)
-         ;; (typescript-mode . tide-hl-identifier-mode)
+  :hook ((web-mode . (lambda ()
+                       (when (string-equal "tsx" (file-name-extension buffer-file-name))
+                         (setup-tide-mode))))
          ;; (before-save . tide-format-before-save)
          )
   :config
@@ -30,13 +29,7 @@
     (company-mode +1))
 
   ;; aligns annotation to the right hand side
-  (setq company-tooltip-align-annotations t)
-
-  ;; formats the buffer before saving
-  ;; (add-hook 'before-save-hook 'tide-format-before-save)
-
-  ;; (add-hook 'typescript-mode-hook #'setup-tide-mode))
-  )
+  (setq company-tooltip-align-annotations t))
 
 
 
