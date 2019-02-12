@@ -1,4 +1,5 @@
 (("ace-window" . "896961694495afe22a87eb5fed8f794b0087fbde")
+ ("ag.el" . "77b4f50c5372bf219da496567b2b867261f0d354")
  ("atomic-chrome" . "a505f638866f9e7b913784be0dc84f338e9ad449")
  ("avy" . "e80251056de24ef67b12d4e81f5aba45d3719c7c")
  ("clang-format" . "5556c31528af2661bed3011bd63ffc0ed44e18a0")
@@ -14,6 +15,7 @@
  ("docker-tramp.el" . "c4bfbdc37703a036c7c01e2911822192e51ae7b0")
  ("docker.el" . "9ed06b1b2050b33cc42608866e2a1f84649c2a3c")
  ("dockerfile-mode" . "7223d92718f78fa3ab15667cdb2ed90cfeb579e7")
+ ("dumb-jump" . "4b7031fca2ce06b76f9b0ca55fa04de06c7d9e13")
  ("elpa" . "d5b6104c897e2129cf2b0ef19920cbfebd603717")
  ("emacs-anzu" . "e6c56ca8b23ac433f7be58b6f3f50801dd4164e4")
  ("emacs-async" . "81dc034572e963550c5403a2b3c28047e46b4029")
