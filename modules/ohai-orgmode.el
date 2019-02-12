@@ -75,4 +75,39 @@ Inserted by installing org-mode or when a release is made."
 ;;    (visual-line-mode 1)
 ;;    (set-visual-wrap-column 80)))
 
+(define-key global-map "\C-ca" 'org-agenda)
+(define-key global-map "\C-cc" 'org-capture)
+
+(setq org-directory "~/org")
+(setq org-index-file "~/org/index.org")
+(setq org-archive-location
+      (concat "~/org/archive.org" "::* From %s"))
+
+;; add CLOSE: <time> when completing todo
+(setq org-log-done 'time)
+
+(setq org-agenda-files (list org-directory))
+(setq org-capture-templates
+      '(("b" "Blog idea"
+         entry
+         (file "~/org/blog-ideas.org")
+         "* %?\n")
+
+        ("e" "Email" entry
+         (file+headline org-index-file "Inbox")
+         "* TODO %?\n\n%a\n\n")
+
+        ("f" "Finished book"
+         table-line (file "~/org/books-read.org")
+         "| %^{Title} | %^{Author} | %u |")
+
+        ("r" "Reading"
+         checkitem
+         (file "~/org/to-read.org"))
+
+        ("t" "Todo"
+         entry
+         (file+headline org-index-file "Inbox")
+         "* TODO %?\n")))
+
 (provide 'ohai-orgmode)
