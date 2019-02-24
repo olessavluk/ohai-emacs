@@ -3,16 +3,20 @@
 
 ;;; Code:
 
-;; (use-package typescript-mode
-;;   :mode ("\\.tsx?$" . typescript-mode))
-
+(use-package typescript-mode
+  :mode ("\\.tsx?$" . typescript-mode))
 
 (use-package tide
-  :after (web-mode ;; typescript-mode
-          company flycheck)
+  :after (
+          ;; not sure why it is hanging with web-mode?
+          ;; web-mode
+          typescript-mode
+          company
+          flycheck)
   :hook ((web-mode . (lambda ()
                        (when (string-equal "tsx" (file-name-extension buffer-file-name))
                          (setup-tide-mode))))
+         (typescript-mode . setup-tide-mode)
          ;; (before-save . tide-format-before-save)
          )
   :config
