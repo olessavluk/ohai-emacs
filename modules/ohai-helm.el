@@ -64,6 +64,8 @@
          ("M-y" . helm-show-kill-ring))
   :diminish helm-mode)
 
+(use-package wgrep)
+
 ;; Enrich isearch with Helm using the `C-S-s' binding.
 ;; swiper-helm behaves subtly different from isearch, so let's not
 ;; override the default binding.
@@ -110,22 +112,22 @@
                            (funcall success (-difference files ignored)))
                          error)))
 
-(defun ohai-helm/find-files-in-emacs-d ()
-  (interactive)
-  (ohai-helm/files-in-repo
-   dotfiles-dir
-   (lambda (files)
-     (let ((relfiles (-filter
-                      (lambda (f) (not (f-descendant-of? f ".git")))
-                      (-map (lambda (f) (f-relative f dotfiles-dir)) files))))
-       (find-file
-        (concat dotfiles-dir
-                (helm :sources (helm-build-sync-source ".emacs.d" :candidates relfiles)
-                      :ff-transformer-show-only-basename helm-ff-transformer-show-only-basename
-                      :buffer "*helm emacs.d*")))))
-   (lambda (err) (warn "ohai-helm/find-files-in-emacs-d: %s" err))))
+;; (defun ohai-helm/find-files-in-emacs-d ()
+;;   (interactive)
+;;   (ohai-helm/files-in-repo
+;;    dotfiles-dir
+;;    (lambda (files)
+;;      (let ((relfiles (-filter
+;;                       (lambda (f) (not (f-descendant-of? f ".git")))
+;;                       (-map (lambda (f) (f-relative f dotfiles-dir)) files))))
+;;        (find-file
+;;         (concat dotfiles-dir
+;;                 (helm :sources (helm-build-sync-source ".emacs.d" :candidates relfiles)
+;;                       :ff-transformer-show-only-basename helm-ff-transformer-show-only-basename
+;;                       :buffer "*helm emacs.d*")))))
+;;    (lambda (err) (warn "ohai-helm/find-files-in-emacs-d: %s" err))))
 
-(global-set-key (kbd "C-c C-e") 'ohai-helm/find-files-in-emacs-d)
+;; (global-set-key (kbd "C-c C-e") 'ohai-helm/find-files-in-emacs-d)
 
 
 
