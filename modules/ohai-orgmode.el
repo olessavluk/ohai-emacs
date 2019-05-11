@@ -110,4 +110,6 @@ Inserted by installing org-mode or when a release is made."
          (file+headline org-index-file "Inbox")
          "* TODO %?\n")))
 
+(use-package ox-jira)
+
 (provide 'ohai-orgmode)
