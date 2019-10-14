@@ -60,6 +60,13 @@
                    name (file-name-nondirectory new-name)))))))
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 
+(defun ohai/copy-current-buffer-file ()
+  (interactive)
+  (kill-new buffer-file-name))
+
+;; with line & column
+;; (concat buffer-file-name " " (count-lines 1 (point)) ":" (current-column))
+
 (use-package xah-find)
 
 
