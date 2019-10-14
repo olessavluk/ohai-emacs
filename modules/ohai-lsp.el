@@ -23,7 +23,6 @@
 ;; Basic lsp-mode config.
 ;; Language modules will add their own lsp setup if this is loaded.
 (use-package lsp-mode
-  :demand t
   :commands lsp)
 
 (with-eval-after-load "company"
@@ -31,12 +30,13 @@
     :after lsp-mode
     :commands company-lsp))
 
-;; (use-package lsp-ui
-;;   :commands lsp-ui-mode
-;;   :bind (:map lsp-ui-mode-map
-;;               ("M-." . lsp-ui-peek-find-definitions)
-;;               ("M-?" . lsp-ui-peek-find-references)))
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :bind (:map lsp-ui-mode-map
+              ("M-." . lsp-ui-peek-find-definitions)
+              ("M-?" . lsp-ui-peek-find-references)))
 
+;; TODO add dap-mode?
 
 
 (provide 'ohai-lsp)

@@ -4,7 +4,7 @@
 ;;; Code:
 
 (use-package typescript-mode
-  :mode ("\\.tsx?$" . typescript-mode))
+  :mode ("\\.ts$" . typescript-mode))
 
 (use-package tide
   :after (
@@ -19,6 +19,7 @@
          (typescript-mode . setup-tide-mode)
          ;; (before-save . tide-format-before-save)
          )
+  :bind ("C-c t" . setup-tide-mode)
   :config
   (defun setup-tide-mode ()
     (interactive)
@@ -35,6 +36,8 @@
   ;; aligns annotation to the right hand side
   (setq company-tooltip-align-annotations t))
 
-
+;; If the LSP module is enabled
+;; (with-eval-after-load "ohai-lsp"
+;;   (add-hook 'typescript-mode-hook #'lsp))
 
 (provide 'ohai-typescript)
