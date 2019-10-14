@@ -56,8 +56,8 @@
                       :foreground "white"
                       :weight 'bold)
   (set-face-foreground 'which-func "#3cb64a")
-  (set-face-attribute 'linum nil :height 0.7)
-  (set-face-attribute 'linum-highlight-face nil :foreground nil :background "#ddd" :height 0.7)
+  ;; (set-face-attribute 'linum nil :height 0.7)
+  ;; (set-face-attribute 'linum-highlight-face nil :foreground nil :background "#ddd" :height 0.7)
 
   (set-face-foreground 'term-color-black "#ffffff")
   (set-face-foreground 'term-color-red "#f5666d")
@@ -81,16 +81,16 @@
 
   ;; (set-face-background 'region "#223355")
   ;; (set-face-background 'fringe "#000")
-  (set-face-attribute
-   'linum nil
-   :foreground "#678"
-   ;; :background "#000"
-   :height 0.9)
-  (set-face-attribute
-   'linum-highlight-face nil
-   :foreground "#96989c"
-   ;; :background "#263238"
-   :height 0.9)
+  ;; (set-face-attribute
+  ;;  'linum nil
+  ;;  :foreground "#678"
+  ;;  ;; :background "#000"
+  ;;  :height 0.9)
+  ;; (set-face-attribute
+  ;;  'linum-highlight-face nil
+  ;;  :foreground "#96989c"
+  ;;  ;; :background "#263238"
+  ;;  :height 0.9)
   (set-face-foreground 'which-func "#7f9f7f")
 
   (set-face-foreground 'term-color-black "#3f3f3f")
@@ -133,13 +133,13 @@
   (blink-cursor-mode -1))
 
 ;; Show line numbers in buffers.
-(global-linum-mode t)
-(setq linum-format (if (not window-system) "%4d " "%4d"))
+;; (global-linum-mode t)
+;; (setq linum-format (if (not window-system) "%4d " "%4d"))
 
 ;; Highlight the line number of the current line.
-(use-package hlinum
-  :config
-  (hlinum-activate))
+;; (use-package hlinum
+;;   :config
+;;   (hlinum-activate))
 
 ;; Show column numbers in modeline.
 (setq column-number-mode t)
@@ -148,13 +148,13 @@
 (which-function-mode)
 
 ;; Ensure linum-mode is disabled in certain major modes.
-(setq linum-disabled-modes
-      '(term-mode slime-repl-mode magit-status-mode help-mode nrepl-mode
-        mu4e-main-mode mu4e-headers-mode mu4e-view-mode
-        mu4e-compose-mode))
-(defun linum-on ()
-  (unless (or (minibufferp) (member major-mode linum-disabled-modes))
-    (linum-mode 1)))
+;; (setq linum-disabled-modes
+;;       '(term-mode slime-repl-mode magit-status-mode help-mode nrepl-mode
+;;         mu4e-main-mode mu4e-headers-mode mu4e-view-mode
+;;         mu4e-compose-mode))
+;; (defun linum-on ()
+;;   (unless (or (minibufferp) (member major-mode linum-disabled-modes))
+;;     (linum-mode 1)))
 
 ;; Highlight matching braces.
 (show-paren-mode 1)
