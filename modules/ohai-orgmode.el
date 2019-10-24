@@ -68,6 +68,16 @@ Inserted by installing org-mode or when a release is made."
   (with-eval-after-load "org"
     (define-key org-mode-map (kbd "C-c M-l") 'org-cliplink)))
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (python . t)
+   (shell . t)
+   (octave . t)
+   ;; Include other languages here...
+   ))
+(setq org-confirm-babel-evaluate 'nil)
+
 ;; Always use visual-line-mode in org-mode, and wrap it at column 80.
 ;; (add-hook
 ;;  'org-mode-hook

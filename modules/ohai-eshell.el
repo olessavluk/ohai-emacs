@@ -69,6 +69,7 @@
   :config
   (global-fish-completion-mode))
 
+(use-package vterm)
 
 
 (provide 'ohai-eshell)
