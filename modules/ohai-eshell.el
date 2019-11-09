@@ -69,8 +69,13 @@
   :config
   (global-fish-completion-mode))
 
-(use-package vterm)
-
+(use-package vterm
+  :load-path  "~/.emacs.d/straight/repos/emacs-libvterm"
+  :straight (vterm
+             :type git
+             :host github
+             :repo "akermu/emacs-libvterm"
+             :branch "master"))
 
 (provide 'ohai-eshell)
 ;;; ohai-eshell.el ends here
