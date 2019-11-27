@@ -53,7 +53,7 @@
    (ohai-docker "Docker support" :optional)
    (ohai-javascript "JavaScript language support" :optional)
    (ohai-js-web-mode "alternative JS support using web-mode" :optional)
-   (ohai-graphql "alternative JS support using web-mode" :optional)
+   (ohai-graphql "edit GraphQL schema and queries" :optional)
    (ohai-typescript "TypeScript language support" :optional)
    (ohai-flow "the Flow type checker for JS" :optional)
    (ohai-purescript "PureScript language support" :optional)
