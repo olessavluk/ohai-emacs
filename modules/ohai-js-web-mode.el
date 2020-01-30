@@ -64,6 +64,8 @@
     (company-mode +1))
   )
 
+(use-package groovy-mode)
+
 ;; If the LSP module is enabled
 ;; (with-eval-after-load "ohai-lsp"
 ;;   (add-hook 'web-mode-hook #'lsp))
