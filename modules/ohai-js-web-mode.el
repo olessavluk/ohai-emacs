@@ -32,9 +32,14 @@
 
 (use-package prettier-js
   :commands prettier-js
-  :bind ("C-c C-p" . prettier-js)
+  :bind ("C-c C-p" . ohai/prettier-js)
   ;; :init (setq-default prettier-js-args '("--single-quote" "true"))
-  )
+  :config
+  (defun ohai/prettier-js ()
+    "Same as default, but using node_modules executable first"
+    (interactive)
+    (setq-local prettier-js-command (ohai/resolve-node-exec "prettier"))
+    (prettier-js)))
 
 ;; Use web-mode for all JS files.
 (use-package web-mode

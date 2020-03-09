@@ -54,7 +54,7 @@
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
-;; C-c <left/right> to manage windows history
+;; C-c q<left/right> to manage windows history
 (winner-mode 1)
 ;; M-<number> to switch window you want
 (use-package winum
@@ -87,12 +87,14 @@
   (interactive)
   (split-window-below)
   (split-window-right)
-  (winum-select-window-by-number 3)
+  (windmove-down)
   (split-window-right)
-  (winum-select-window-by-number 4)
+  (with-demoted-errors (magit-status-setup-buffer))
+  (windmove-right)
   (switch-to-buffer "*Messages*")
   (balance-windows)
-  (winum-select-window-by-number 1))
+  (windmove-up)
+  (windmove-left))
 (global-set-key (kbd "C-c w r f") 'my-fullscreen)
 (global-set-key (kbd "C-c w a f") 'my-arrange-windows-4)
 
@@ -110,13 +112,17 @@
   (split-window-below)
   (split-window-right)
   (split-window-right)
-  (winum-select-window-by-number 4)
+  (windmove-down)
   (split-window-right)
   (split-window-right)
-  (winum-select-window-by-number 6)
+  (windmove-right)
+  (with-demoted-errors (magit-status-setup-buffer))
+  (windmove-right)
   (switch-to-buffer "*Messages*")
   (balance-windows)
-  (winum-select-window-by-number 1))
+  (windmove-up)
+  (windmove-left)
+  (windmove-left))
 (global-set-key (kbd "C-c w r s") 'my-resize-6)
 (global-set-key (kbd "C-c w a s") 'my-arrange-windows-6)
 

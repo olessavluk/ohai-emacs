@@ -26,11 +26,11 @@
 ;; See http://magit.github.io/ for instructions.
 (use-package magit
   :commands magit-status
-  ;; :init
+  :init
   ;; https://github.com/magit/magit/issues/1953#issuecomment-221134023
   ;; (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
 
-  ;; (setq magit-display-buffer-function #'magit-display-buffer-traditional)
+  (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   :bind ("C-x g" . magit-status))
 
 ;; Use M-x gist-buffer or M-x gist-region to create a gist
@@ -43,6 +43,7 @@
   (global-git-gutter-mode t)
   :diminish git-gutter-mode)
 
+(use-package git-timemachine)
 
 
 (provide 'ohai-git)
