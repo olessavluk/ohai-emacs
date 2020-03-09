@@ -51,6 +51,7 @@
    (ohai-markdown "Markdown support" :optional)
    (ohai-yaml "YAML support" :optional)
    (ohai-docker "Docker support" :optional)
+   (ohai-java "Java language support" :optional)
    (ohai-javascript "JavaScript language support" :optional)
    (ohai-js-web-mode "alternative JS support using web-mode" :optional)
    (ohai-graphql "edit GraphQL schema and queries" :optional)
