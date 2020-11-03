@@ -46,7 +46,7 @@
 
 (global-set-key (kbd "C-x o") 'ohai/previous-window)
 (global-set-key (kbd "C-x C-o") 'ohai/select-window)
-(global-set-key (kbd "C-x M-o") 'ace-swap-window)
+(global-set-key (kbd "C-x C-M-o") 'ace-swap-window)
 
 
 

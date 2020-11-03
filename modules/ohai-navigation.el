@@ -115,6 +115,7 @@
   (windmove-down)
   (split-window-right)
   (split-window-right)
+  (vterm)
   (windmove-right)
   (with-demoted-errors (magit-status-setup-buffer))
   (windmove-right)
