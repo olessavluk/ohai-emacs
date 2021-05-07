@@ -59,4 +59,7 @@
 ;; So I can use emacsclient for editing
 (server-start)
 
+(use-package elcord)
+;; (elcord-mode)
+
 (provide 'ohai-general)

@@ -77,5 +77,6 @@
 ;;   ("q" exit)
 ;;   ("z" nil "leave"))
 
+(use-package groovy-mode)
 
 (provide 'ohai-java)

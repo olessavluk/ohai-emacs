@@ -32,7 +32,7 @@
 
 (use-package prettier-js
   :commands prettier-js
-  :bind ("C-c C-p" . ohai/prettier-js)
+  :bind ("C-c w p" . ohai/prettier-js)
   ;; :init (setq-default prettier-js-args '("--single-quote" "true"))
   :config
   (defun ohai/prettier-js ()
@@ -62,6 +62,10 @@
   (with-eval-after-load "flycheck"
     (flycheck-add-mode 'javascript-eslint 'web-mode))
 
+  (setq web-mode-markup-indent-offset 4)
+  (setq web-mode-css-indent-offset 4)
+  (setq web-mode-code-indent-offset 4)
+
   (defun ohai/web-mode-reload ()
     (interactive)
     (web-mode-reload)
@@ -69,7 +73,19 @@
     (company-mode +1))
   )
 
-(use-package groovy-mode)
+(use-package eslint-fix
+  :straight (eslint-fix
+             :type git
+             :host github
+             :repo "codesuki/eslint-fix"
+             :branch "master")
+  :bind ("C-c w e" . ohai/eslint-fix)
+  :config
+  (defun ohai/eslint-fix ()
+    "Same as default, but using node_modules executable first"
+    (interactive)
+    (setq-local eslint-fix-executable (ohai/resolve-node-exec "eslint"))
+    (eslint-fix)))
 
 ;; If the LSP module is enabled
 ;; (with-eval-after-load "ohai-lsp"
